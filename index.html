@@ -3,11 +3,11 @@
 	<head>
 		<title>Alluvione Livorno</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 		<link rel="stylesheet" type="text/css" href="css/own_style.css">
 		<link rel="stylesheet" href="css/label.css" />
-		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
 		<script src="js/leaflet-hash.js"></script>
 		<script src="js/label.js"></script>
 		<script src="js/Autolinker.min.js"></script>
@@ -24,18 +24,18 @@
 		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
 		var feature_group = new L.featureGroup([]);
 		var raster_group = new L.LayerGroup([]);
-		var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { 
-			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
-		});	
-		basemap_0.addTo(map);
-		var basemap_1 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', { 
+		var basemap_0 = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
 		});
-		var basemap_2 = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', { 
+		basemap_0.addTo(map);
+		var basemap_1 = L.tileLayer('http://{s}.www.toolserver.org/tiles/bw-mapnik/{z}/{x}/{y}.png', {
+			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});
+		var basemap_2 = L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
 			attribution: additional_attrib + '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
-		});	
+		});
 		var layerOrder=new Array();
-		function pop_areeallagate(feature, layer) {					
+		function pop_areeallagate(feature, layer) {
 			var popupContent = '<table><tr><th scope="row">src_date</th><td>' + Autolinker.link(String(feature.properties['src_date'])) + '</td></tr><tr><th scope="row">ext_scale</th><td>' + Autolinker.link(String(feature.properties['ext_scale'])) + '</td></tr><tr><th scope="row">nam</th><td>' + Autolinker.link(String(feature.properties['nam'])) + '</td></tr><tr><th scope="row">ext_date</th><td>' + Autolinker.link(String(feature.properties['ext_date'])) + '</td></tr><tr><th scope="row">txt</th><td>' + Autolinker.link(String(feature.properties['txt'])) + '</td></tr><tr><th scope="row">src_info</th><td>' + Autolinker.link(String(feature.properties['src_info'])) + '</td></tr><tr><th scope="row">act_id</th><td>' + Autolinker.link(String(feature.properties['act_id'])) + '</td></tr><tr><th scope="row">source_nam</th><td>' + Autolinker.link(String(feature.properties['source_nam'])) + '</td></tr><tr><th scope="row">grading</th><td>' + Autolinker.link(String(feature.properties['grading'])) + '</td></tr><tr><th scope="row">interpret</th><td>' + Autolinker.link(String(feature.properties['interpret'])) + '</td></tr><tr><th scope="row">settl_type</th><td>' + Autolinker.link(String(feature.properties['settl_type'])) + '</td></tr><tr><th scope="row">subtype</th><td>' + Autolinker.link(String(feature.properties['subtype'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
